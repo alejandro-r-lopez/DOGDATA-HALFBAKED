@@ -11,10 +11,13 @@ window.addEventListener('load', async () => {
 
     const dog = await getDog(id);
 
-    const dogDetails = renderDogDetail(dog);
+    dogData = dog;
+
+    const dogDetails = renderDogDetail(dogData);
+
+    dogDetailContainer.classList.add('dog-detail');
 
     dogDetailContainer.append(dogDetails);
-    console.log(dog);
 });
 // on load
 // get the id from URL
