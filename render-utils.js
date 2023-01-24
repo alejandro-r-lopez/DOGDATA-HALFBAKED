@@ -7,8 +7,8 @@ export function renderDogCard(dog) {
     div.classList.add('dog-card');
 
     p.textContent = dog.name;
-    img.src = `./assets/${dog.breed}.jpeg`;
-    a.href = ''; // link to the dog's detail page here
+    img.src = `./assets/${dog.dog_breeds.name}.jpeg`;
+    a.href = `./detail/?id=${dog.id}`; // link to the dog's detail page here
 
     div.append(p, img);
 
@@ -25,6 +25,19 @@ export function renderDogDetail(dog) {
     const ageEl = document.createElement('p');
     const breedEl = document.createElement('p');
     const ageAndBreedEl = document.createElement('div');
+
+    nameEl.classList.add('name');
+    ageAndBreedEl.classList.add('age-and-breed');
+    descriptionEl.classList.add('description');
+
+    nameEl.textContent = dog.name;
+    ageEl.textContent = dog.age;
+    descriptionEl.textContent = dog.description;
+    breedEl.textContent = dog.dog_breeds.name;
+    img.src = `../assets/${dog.dog_breeds.name}.jpeg`;
+
+    ageAndBreedEl.append(ageEl, breedEl);
+    div.append(nameEl, ageAndBreedEl, img, descriptionEl);
 
     // examine the css classes already written and finish writing a detail page using the above elements
 
